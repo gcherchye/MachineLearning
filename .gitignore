@@ -1,0 +1,10 @@
+# Ignore everything
+*.*
+
+# Authorize these files
+!.gitignore
+!.gitkeep
+!.gitattributes
+!readme.md
+
+!requirments.txt
