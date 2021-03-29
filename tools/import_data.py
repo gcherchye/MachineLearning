@@ -9,7 +9,7 @@ from sklearn.model_selection import train_test_split
 
 
 # Constant variable
-PATH = 'src/titanic-passengers.csv'
+PATH = 'src/titanic.csv'
 
 # Function definition
 def get_data(path: str=PATH, graph: bool=False) -> pd.DataFrame:
