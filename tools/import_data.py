@@ -1,11 +1,14 @@
 """data import and preprocessing"""
 from __future__ import absolute_import
 
+import os
 import time
 
 import matplotlib.pyplot as plt
 import pandas as pd
 from sklearn.model_selection import train_test_split
+
+from data.download_data import download_data
 
 
 # Constant variable
@@ -13,18 +16,23 @@ PATH = 'src/titanic.csv'
 
 # Function definition
 def get_data(path: str=PATH, graph: bool=False) -> pd.DataFrame:
-    """Import the titanic from local path
+    """Import (or download & import if not exist) the titanic data from local path
 
     Args:
-        path (str, optional): The path to the csv file. Defaults to 'src/titanic-passengers.csv'.
+        path (str, optional): The path to the csv file. Defaults to 'src/titanic.csv'.
         graph (bool, optional): Show the graphs or not. Defaults to False.
 
     Returns:
         pd.DataFrame: The ready to use DataFrame
     """
     start = time.time()
-    # Data import
     print('# Retreiving data ...')
+
+    if not os.path.exists(path):
+        print(' - File not found. Downloading ...\n')
+        download_data()
+
+    # Data import
     print(' - Importing ...', end='\t')
     data = pd.read_csv(
         path,
