@@ -7,7 +7,10 @@
 !.gitattributes
 !readme.md
 
-!requirments.txt
+!requirements.txt
 
 # Authorize these type
 !*.py
+
+# Forget
+*__init__.py
